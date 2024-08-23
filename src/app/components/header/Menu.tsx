@@ -13,12 +13,12 @@ const menuList = [
 export default function Menu(params: Props) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const isFilterOpen = () => searchParams.has("filter");
+  const isFilterOpen = () => searchParams.has("filtered");
   const setFilter = () => {
     router.push(`/?filter`);
   };
   const removeFilter = () => {
-    router.push(`/`);
+    router.push(`/?Nofilter`);
   };
   return (
     <nav

@@ -25,7 +25,6 @@ export default function RootLayout({
             <div className=" bg-white container rounded-t-lg  mx-auto relative -top-36 shadow-slate-700 shadow-lg">
               <div className="container  max-w-screen-xl mx-auto">
                 <ToastContainer />
-
                 {children}
               </div>
             </div>

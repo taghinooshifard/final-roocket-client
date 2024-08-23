@@ -2,10 +2,10 @@ import useData from "@/app/hooks/useData";
 import { ErrorMessage, Field, FieldProps } from "formik";
 import { ChangeEvent, useEffect, useState } from "react";
 import { IconType } from "react-icons";
-import LoadingSpinner from "../../shared/loadingSpinner";
+import LoadingSpinner from "../shared/loadingSpinner";
 import { BiSolidCategory } from "react-icons/bi";
 import SelectBoxControl from "./selectBox";
-import CategoryModel from "@/app/models/CaregoryData";
+import CategoryModel from "../../models/CaregoryData";
 interface SelectOption {
   label: string;
   value: any;
@@ -53,7 +53,7 @@ export default function SelectBoxData(params: Props) {
         </button>
       </div>
     );
-    if (categoryList?.data[0]?.value != "0")
+  if (categoryList?.data[0]?.value != "0")
     categoryList?.data.unshift({
       value: "0",
       label: "Please Select",

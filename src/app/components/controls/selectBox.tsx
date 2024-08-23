@@ -13,7 +13,7 @@ interface Props {
   className?: string;
   errorClassName?: string;
   icon: IconType;
-  options?: SelectOption[];
+  options: SelectOption[];
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
