@@ -1,6 +1,6 @@
 import { FaAddressBook, FaMailBulk, FaMobile } from "react-icons/fa";
 import { FaCity, FaMobileScreen, FaPhone } from "react-icons/fa6";
-import ContactForm from "../components/forms/ContactForm";
+import ContactForm from "../components/forms/contact/ContactForm";
 
 interface Props {}
 export default function ContactPage(params: Props) {
@@ -20,12 +20,12 @@ export default function ContactPage(params: Props) {
           <FaMailBulk /> nooshifard@gmail.com
         </div>
       </div>
-        <div className="flex justify-center border-t-8 mt-3 border-red-400 ">
+      <div className="flex justify-center border-t-8 mt-3 border-red-400 ">
         <fieldset className="flex justify-center border border-red-400 w-3/6 my-4 rounded-md">
-        <legend>Send Your Message</legend>
-        <ContactForm />
-      </fieldset>
-        </div>
+          <legend>Send Your Message</legend>
+          <ContactForm />
+        </fieldset>
+      </div>
     </>
   );
 }

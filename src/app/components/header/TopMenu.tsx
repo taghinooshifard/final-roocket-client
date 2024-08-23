@@ -1,5 +1,5 @@
-import {  FaMobileScreenButton } from "react-icons/fa6";
-import {  GiReactor } from "react-icons/gi";
+import { FaMobileScreenButton } from "react-icons/fa6";
+import { GiReactor } from "react-icons/gi";
 
 interface Props {}
 export default function TopMenu(params: Props) {
@@ -10,18 +10,19 @@ export default function TopMenu(params: Props) {
           href="https://flowbite.com"
           className="flex items-center space-x-3 rtl:space-x-reverse  hover:bg-red-400 p-2 rounded-md"
         >
-          <GiReactor  className="h-8 w-8"/>
+          <GiReactor className="h-8 w-8" />
 
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white ">
             Roocket
           </span>
         </a>
         <div className="flex items-center space-x-1 rtl:space-x-reverse">
-
           <a
             href="tel:+989903503018"
-            className="flex items-baseline text-sm  dark:text-white  hover:bg-red-400 p-2 rounded-md"
-          > <FaMobileScreenButton/>
+            className="flex items-baseline text-sm max-sm:hidden dark:text-white  hover:bg-red-400 p-2 rounded-md"
+          >
+            {" "}
+            <FaMobileScreenButton />
             (+98)9903503018
           </a>
           <button

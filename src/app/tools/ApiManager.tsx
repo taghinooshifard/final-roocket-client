@@ -58,3 +58,6 @@ export async function Get(url: any) {
     throw error;
   }
 }
+export function createMarkup(dirty: any) {
+  return { __html: dirty };
+}

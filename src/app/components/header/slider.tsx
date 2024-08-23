@@ -74,31 +74,31 @@ export default function Slider(params: Props) {
               clickable: true,
             }}
             modules={[Pagination]}
-            className="w-full h-96 text-center mt-20"
+            className="w-full h-96  text-center mt-20"
           >
             {PostList?.data?.map((post: PostModel) => {
               return (
                 <SwiperSlide key={post.id}>
                   <div className="max-w-sm h-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <Link href={`${process.env.PUBLIC_URL}/${post.id}`}>
+                      <Image
+                        className="rounded-t-lg mx-auto w-full"
+                        src={
+                          post.image_url ??
+                          `${process.env.PUBLIC_URL}no-photo.jpg`
+                        }
+                        alt=""
+                        width={400}
+                        height={400}
+                      />
+                    </Link>
+                    <div className="mt-2">
                       <Link href={`${process.env.PUBLIC_URL}/${post.id}`}>
-                        <Image
-                          className="rounded-t-lg mx-auto w-full"
-                          src={
-                            post.image_url ??
-                            `${process.env.PUBLIC_URL}no-photo.jpg`
-                          }
-                          alt=""
-                          width={400}
-                          height={400}
-                        />
+                        <h5 className="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
+                          {post.title}
+                        </h5>
                       </Link>
-                      <div className="p-5">
-                        <Link href={`${process.env.PUBLIC_URL}/${post.id}`}>
-                          <h5 className="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
-                            {post.title}
-                          </h5>
-                        </Link>
-                      </div>
+                    </div>
                   </div>
                 </SwiperSlide>
               );

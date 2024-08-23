@@ -22,19 +22,19 @@ export default function Articles({ page, filter }: Props) {
         <LoadingSpinner message="Please Wait.Posts is Fetching..." />
       </div>
     );
-  if (error) return <h1>{error.messages}</h1>;
+  if (error) return <h1 className="text-center mt-10">{error.messages}</h1>;
 
   {
     return PostList?.data?.data?.map((post: PostModel) => {
       return (
         <article key={post.id} className="my-8 flex flex-col space-y-8">
           <header className="relative z-10">
-            <h2 className="text-slate-900 hover:text-red-500 text-6xl font-semibold ">
+            <h2 className="text-slate-900 hover:text-red-500 text-6xl max-sm:text-2xl font-semibold ">
               <Link href={`${process.env.PUBLIC_URL}${post.slug}`}>
                 {post.title}
               </Link>
             </h2>
-            <div className="flex gap-5 text-gray-400">
+            <div className="flex gap-5 text-gray-400 max-sm:text-sm">
               <div>
                 <div className="coauthors">
                   <span>
@@ -54,7 +54,7 @@ export default function Articles({ page, filter }: Props) {
               </div>
               <div>2 Min Read</div>
             </div>
-            <div className="text-[225px] opacity-10 absolute -top-20 -ml-32">
+            <div className="text-[225px] opacity-10 absolute -top-20 -ml-32 max-sm:hidden">
               {post?.title[0]?.toUpperCase()}
             </div>
           </header>

@@ -1,24 +1,23 @@
 "use client";
 import ValidationError from "@/app/exceptions/ValidationErrors";
-import {  withFormik } from "formik";
+import { withFormik } from "formik";
 import * as yup from "yup";
-
-import {  toast } from "react-toastify";
-import ContactModel from "@/app/models/ContactModel";
+import { toast } from "react-toastify";
 import MessageError from "@/app/exceptions/MessageError";
 import Post from "@/app/tools/ApiManager";
-import innerContactForm from "./InnerContactForm";
-const ContactFormSchema = yup.object().shape({
+import InnerCommentForm from "./InnerCommentForm";
+import CommentModel from "@/app/models/CommentModel";
+const CommentFormSchema = yup.object().shape({
   name: yup.string().required().min(2).max(255),
-  email: yup.string().required().email(),
   content: yup.string().required().min(2).max(500),
 });
-export interface ContactDefaultValues {}
-const ContactForm = withFormik<ContactDefaultValues, ContactModel>({
+export interface CommentDefaultValues {
+  slug: string;
+}
+const CommentForm = withFormik<CommentDefaultValues, CommentModel>({
   mapPropsToValues: (props) => {
     return {
       name: "",
-      email: "",
       content: "",
     };
   },
@@ -29,11 +28,11 @@ const ContactForm = withFormik<ContactDefaultValues, ContactModel>({
     try {
       setSubmitting(true);
       const data = await Post({
-        url: "https://react-camp-api.roocket.ir/api/nooshifard@yandex.com/contact",
+        url: `https://react-camp-api.roocket.ir/api/nooshifard@yandex.com/article/${props.slug}/comment`,
         values,
       });
       if (data?.message) {
-        toast.success("Message Sended...");
+        toast.success("Comment Sended...");
         setSubmitting(false);
       }
       resetForm();
@@ -49,7 +48,7 @@ const ContactForm = withFormik<ContactDefaultValues, ContactModel>({
       }
     }
   },
-  validationSchema: ContactFormSchema,
-})(innerContactForm);
+  validationSchema: CommentFormSchema,
+})(InnerCommentForm);
 
-export default ContactForm;
+export default CommentForm;

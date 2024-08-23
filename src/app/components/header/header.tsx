@@ -24,8 +24,7 @@ export default function Header(params: Props) {
           <TopMenu />
           <Menu showTopMenu={params.showTopMenu} />
         </header>
-
-        <Slider/>
+        <Slider />
       </div>
     </div>
   );

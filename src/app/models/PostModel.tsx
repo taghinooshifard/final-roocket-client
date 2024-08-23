@@ -1,3 +1,5 @@
+import CommentModel from "./CommentModel";
+
 export default interface PostModel {
   id?: number;
   title: string;
@@ -10,4 +12,5 @@ export default interface PostModel {
   description?: string;
   summary?: string;
   content?: string;
+  comments: CommentModel[];
 }
